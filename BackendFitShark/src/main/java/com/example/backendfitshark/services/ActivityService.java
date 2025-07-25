@@ -2,11 +2,14 @@ package com.example.backendfitshark.services;
 
 import com.example.backendfitshark.dto.ActivityDto;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.example.backendfitshark.repo.AcitivityRepo;
 import com.example.backendfitshark.model.Acitivity;
+
+import java.util.List;
 
 @Service
 @Transactional
@@ -28,7 +31,10 @@ public class ActivityService {
     }
 
     // Get Acitivities
-    public ActivityDto getActivity(int id) {
+    public List<ActivityDto> getActivity(int id) {
+
+       List<Acitivity> acitivityList = activityRepo.findAllAccById(id);
+        return modelMapper.map(acitivityList,  new TypeToken<List<ActivityDto>>() {}.getType());
 
     }
 
