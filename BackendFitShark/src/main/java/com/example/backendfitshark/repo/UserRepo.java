@@ -1,4 +1,6 @@
 package com.example.backendfitshark.repo;
 
-public interface UserRepo {
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.backendfitshark.model.User;
+public interface UserRepo extends JpaRepository<User, Integer> {
 }

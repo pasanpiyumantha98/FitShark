@@ -5,15 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class UserDto {
+@AllArgsConstructor
+public class ActivityDto {
     int id;
-
-    String email;
-    String name;
-    int age;
-    String password;
-    String gender;
-    int phone;
+    int user_id;
+    int activity_id;
+    int hours;
+    int minutes;
 }
