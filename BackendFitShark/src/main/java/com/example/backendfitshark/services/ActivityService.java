@@ -20,6 +20,8 @@ public class ActivityService {
 
     public String regActivity(ActivityDto activityDto) {
 
+        int id = activityRepo.getMaxId() +1;
+        activityDto.setId(id);
         activityRepo.save(modelMapper.map(activityDto, Acitivity.class));
         return "success";
     }
