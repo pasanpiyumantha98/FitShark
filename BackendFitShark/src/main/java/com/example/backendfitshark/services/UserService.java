@@ -22,9 +22,9 @@ public class UserService {
     private ModelMapper modelMapper;
 
 
-    public UserDto regUser(UserDto userDto) {
-        UserRepo.save(modelMapper.map(userDto, User.class));
-        return userDto;
+    public String regUser(UserDto userDto) {
+        userRepo.save(modelMapper.map(userDto, User.class));
+        return "Done";
     }
 
 
