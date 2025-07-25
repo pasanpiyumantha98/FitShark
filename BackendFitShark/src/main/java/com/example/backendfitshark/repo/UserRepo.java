@@ -1,6 +1,14 @@
 package com.example.backendfitshark.repo;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.backendfitshark.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+
 public interface UserRepo extends JpaRepository<User, Integer> {
+
+    @Query(value= "SELECT * FROM User WHERE email =?1", nativeQuery = true)
+    User findUserByEmail(String email);
+
 }

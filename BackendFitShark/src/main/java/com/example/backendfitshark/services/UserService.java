@@ -28,8 +28,19 @@ public class UserService {
     }
 
     public String logUser(UserDto userDto) {
+        User user = userRepo.findUserByEmail(userDto.getEmail());
 
-        User user = userRepo.findById()
+        if(user == null) {
+            return "NotFound";
+        } else if (user.getPassword().equals(userDto.getPassword()))
+        {
+            return "Success";
+        } else {
+            return "Error";
+        }
+
+
+
     }
 
 
