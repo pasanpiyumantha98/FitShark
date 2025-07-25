@@ -1,5 +1,6 @@
 package com.example.backendfitshark.services;
 
+import com.example.backendfitshark.dto.ActivityDto;
 import com.example.backendfitshark.model.User;
 import com.example.backendfitshark.dto.UserDto;
 import com.example.backendfitshark.repo.UserRepo;
@@ -26,7 +27,7 @@ public class UserService {
 
         int id = userRepo.findMaxId() +1;
         userDto.setId(id);
-        
+
         userRepo.save(modelMapper.map(userDto, User.class));
         return "Done";
     }
