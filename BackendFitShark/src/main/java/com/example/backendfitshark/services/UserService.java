@@ -27,6 +27,11 @@ public class UserService {
         return "Done";
     }
 
+    public String logUser(UserDto userDto) {
+
+        User user = userRepo.findById()
+    }
+
 
 
 }
