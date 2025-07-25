@@ -15,7 +15,7 @@ public class Acitivity {
 
     @Id
     int id;
-    
+
     int user_id;
     int activity_id;
     int hours;
