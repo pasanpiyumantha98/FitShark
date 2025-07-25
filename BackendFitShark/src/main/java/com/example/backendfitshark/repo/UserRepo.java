@@ -11,4 +11,7 @@ public interface UserRepo extends JpaRepository<User, Integer> {
     @Query(value= "SELECT * FROM User WHERE email =?1", nativeQuery = true)
     User findUserByEmail(String email);
 
+    @Query(value="SELECT MAX(id) FROM User", nativeQuery = true)
+    int findMaxId();
+
 }

@@ -21,12 +21,13 @@ public class UserService {
     @Autowired
     private ModelMapper modelMapper;
 
-
+    //Register User
     public String regUser(UserDto userDto) {
         userRepo.save(modelMapper.map(userDto, User.class));
         return "Done";
     }
 
+    // Login User
     public String logUser(UserDto userDto) {
         User user = userRepo.findUserByEmail(userDto.getEmail());
 
@@ -38,8 +39,6 @@ public class UserService {
         } else {
             return "Error";
         }
-
-
 
     }
 
