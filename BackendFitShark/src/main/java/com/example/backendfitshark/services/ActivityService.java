@@ -18,12 +18,18 @@ public class ActivityService {
     @Autowired
     private AcitivityRepo activityRepo;
 
+    // Register Acitvity
     public String regActivity(ActivityDto activityDto) {
 
         int id = activityRepo.getMaxId() +1;
         activityDto.setId(id);
         activityRepo.save(modelMapper.map(activityDto, Acitivity.class));
         return "success";
+    }
+
+    // Get Acitivities
+    public ActivityDto getActivity(int id) {
+
     }
 
 }
