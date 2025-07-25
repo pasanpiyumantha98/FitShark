@@ -23,6 +23,10 @@ public class UserService {
 
     //Register User
     public String regUser(UserDto userDto) {
+
+        int id = userRepo.findMaxId() +1;
+        userDto.setId(id);
+        
         userRepo.save(modelMapper.map(userDto, User.class));
         return "Done";
     }
