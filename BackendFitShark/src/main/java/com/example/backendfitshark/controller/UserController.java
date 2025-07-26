@@ -25,6 +25,11 @@ public class UserController {
         return userService.logUser(userDto);
     }
 
+    @PostMapping("/update/pass")
+    public String updatePass(@RequestBody UserDto userDto) {
+       return userService.updatePass(userDto);
+    }
+
 
 
 }

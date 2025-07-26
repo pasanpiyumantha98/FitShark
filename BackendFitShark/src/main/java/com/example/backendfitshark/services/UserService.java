@@ -47,6 +47,15 @@ public class UserService {
 
     }
 
+    //update user password
+    public String updatePass(UserDto  userDto)
+    {
+            String pass = userDto.getPassword();
+            int  id = userDto.getId();
+            userRepo.updatePass(pass, id);
+            return "Done";
+    }
+
 
 
 }
