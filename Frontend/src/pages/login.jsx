@@ -46,11 +46,12 @@ function Login()
 
         <div class="video-overlay header-text">
             <div class="caption">
-                <h6>work harder, get stronger</h6>
-                <h2>easy with our <em>gym</em></h2>
-                <div class="main-button scroll-to-section">
-                    <a href="#features">Become a member</a>
-                </div>
+                <form action="/login" method="POST">
+                <input type="email" name="email" placeholder="Email" required /><br></br>
+                <input type="password" name="password" placeholder="Password" required />
+     
+                <button type="submit">Login</button>
+                </form>
             </div>
         </div>
     </div>
