@@ -1,5 +1,5 @@
 
-function signup()
+function Signup()
 {
 return (
 
@@ -9,4 +9,4 @@ return (
 
 }
 
-export default signup
+export default Signup
