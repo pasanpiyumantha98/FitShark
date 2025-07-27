@@ -16,6 +16,7 @@ import Navbar1 from "../components/navbar1.jsx"
 import { useState } from "react"
 import axios from "axios"
 import { useNavigate, Link } from "react-router-dom"
+import { toast } from "react-toastify";
 
 
 
@@ -28,8 +29,9 @@ function Login()
 
     const navigate = useNavigate();
 
-    async function submitlogin()
+    async function submitlogin(e)
     {
+      e.preventDefault();
        const response= await axios.post("http://localhost:8080/api/user/login", {email:email, password:pass})
        
         if(response.data==="Success")
@@ -37,7 +39,7 @@ function Login()
             navigate('/dashboard')
         }else 
         {
-            alert("Login failed")
+           toast.error("Wrong Credentials!") 
         }
     }
 

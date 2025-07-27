@@ -15,6 +15,8 @@ import video from "../assets/images/gym-video.mp4"
 import Navbar2 from "../components/navbar1.jsx"
 import { useState } from "react"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
+import { toast } from "react-toastify";
 
 
 
@@ -22,6 +24,8 @@ import axios from "axios"
 function Signup()
 
 {
+
+  const navigate = useNavigate()
 
 const [fname,setFname] = useState("")
 const [lname,setLname] = useState("")
@@ -44,10 +48,10 @@ async function submitreg(e)
         
         if(response.data==="Done")
         {
-            alert("Reg success")
+            navigate('/login')
         } else 
         {
-            alert("Reg failed")
+            toast.error("Reg failed")
         }
 
 
