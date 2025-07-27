@@ -1,12 +1,79 @@
+import "../assets/css/bootstrap.min.css"
+import "../assets/css/font-awesome.css"
+import "../assets/css/templatemo-training-studio.css"
+import "../assets/js/jquery-2.1.0.min.js"
+//import "../assets/js/popper.js"
+import "../assets/js/bootstrap.min.js"
+import "../assets/js/scrollreveal.min.js"
+//import "../assets/js/waypoints.min.js"
+import "../assets/js/jquery.counterup.min.js"
+import "../assets/js/imgfix.min.js"
+import "../assets/js/mixitup.js"
+import "../assets/js/accordions.js"
+import "../assets/js/custom.js"
+import video from "../assets/images/gym-video.mp4"
+import Navbar1 from "../components/navbar1.jsx"
+
+
+
 
 function Signup()
 {
-return (
+    return (
+        <>
 
-    <h1>Sign up</h1>
-)
+      
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+   
+    
+    <Navbar1/>
+    
+  
+    
+    <div class="main-banner" id="top">
+        <video autoplay muted loop id="bg-video">
+            <source src={video} type="video/mp4" />
+        </video>
+
+        <div class="video-overlay header-text">
+            <div class="caption">
+               
+                <div class="jumbotron rounded">
+                
+                <h1>Login</h1>
+               <form action="/action_page.php">
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email"  class="form-control" placeholder="Enter email" id="email"/>
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control"   placeholder="Enter password" id="pwd"/>
+  </div>
+  <div class="form-group form-check">
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox"/> Remember me
+    </label>
+  </div>
+  <button type="submit" class="btn btn-danger">Submit</button>
+</form>
+                </div> 
+            </div>
+        </div>
+    </div>
 
 
+
+        </>
+    )
 }
-
 export default Signup
