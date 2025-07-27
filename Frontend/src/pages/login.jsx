@@ -14,6 +14,7 @@ import "../assets/js/custom.js"
 import video from "../assets/images/gym-video.mp4"
 import Navbar1 from "../components/navbar1.jsx"
 import { useState } from "react"
+import axios from "axios"
 
 
 
@@ -26,7 +27,14 @@ function Login()
 
     async function submitlogin()
     {
-        alert(email)
+       const response= axios.post("http://localhost:8080/api/user/login", {email:email, password:pass})
+        if(response==="success")
+        {
+            alert("login success")
+        }else 
+        {
+            alert("Login failed")
+        }
     }
 
 
@@ -63,7 +71,7 @@ function Login()
                 
                 <h1>Login</h1>
                 <br></br>
-               <form action="/action_page.php">
+               <form >
   <div class="form-group">
     <label for="email">Email address:</label>
     <input type="email"  class="form-control" placeholder="Enter email" id="email" value={email} onChange={e=>setEmail(e.target.value)}/>
