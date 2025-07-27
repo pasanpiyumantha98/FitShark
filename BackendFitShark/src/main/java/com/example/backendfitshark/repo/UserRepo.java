@@ -13,7 +13,7 @@ public interface UserRepo extends JpaRepository<User, Integer> {
     User findUserByEmail(String email);
 
     @Query(value="SELECT MAX(id) FROM User", nativeQuery = true)
-    int findMaxId();
+    Integer findMaxId();
 
     @Modifying
     @Query(value="UPDATE User SET password=?1 WHERE id=?2", nativeQuery = true)

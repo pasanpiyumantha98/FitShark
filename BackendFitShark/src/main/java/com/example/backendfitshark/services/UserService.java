@@ -25,11 +25,26 @@ public class UserService {
     //Register User
     public String regUser(UserDto userDto) {
 
-        int id = userRepo.findMaxId() +1;
+        Integer maxId = userRepo.findMaxId(); // assuming it returns Integer
+        int id;
+
+        if (maxId == null) {
+            id = 1;
+        } else {
+            id = maxId + 1;
+        }
+
         userDto.setId(id);
 
-        userRepo.save(modelMapper.map(userDto, User.class));
-        return "Done";
+        User user = userRepo.findUserByEmail(userDto.getEmail());
+
+        if(user == null) {
+            userRepo.save(modelMapper.map(userDto, User.class));
+            return "Done";
+        } else
+        {
+            return "UserIn";
+        }
     }
 
     // Login User

@@ -5,6 +5,7 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.time.LocalDate;
 
 @Entity
 @NoArgsConstructor
@@ -15,10 +16,10 @@ public class User {
     int id;
 
     String email;
-    String name;
-    int age;
+    String firstName;
+    String lastName;
     String password;
     String gender;
-    int phone;
+
 
 }
