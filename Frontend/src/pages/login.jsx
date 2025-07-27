@@ -50,6 +50,7 @@ function Login()
                 <div class="jumbotron rounded">
                 
                 <h1>Login</h1>
+                <br></br>
                <form action="/action_page.php">
   <div class="form-group">
     <label for="email">Email address:</label>
@@ -64,7 +65,7 @@ function Login()
       <input class="form-check-input" type="checkbox"/> Remember me
     </label>
   </div>
-  <button type="submit" class="btn btn-danger">Submit</button>
+  <button type="submit" class="btn btn-danger">Login</button>
 </form>
                 </div> 
             </div>
