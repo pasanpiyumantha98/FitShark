@@ -15,6 +15,7 @@ import video from "../assets/images/gym-video.mp4"
 import Navbar1 from "../components/navbar1.jsx"
 import { useState } from "react"
 import axios from "axios"
+import { useNavigate, Link } from "react-router-dom"
 
 
 
@@ -25,13 +26,15 @@ function Login()
     const [email,setEmail] = useState("")
     const [pass,setPass] = useState("")
 
+    const navigate = useNavigate();
+
     async function submitlogin()
     {
        const response= await axios.post("http://localhost:8080/api/user/login", {email:email, password:pass})
        
         if(response.data==="Success")
         {
-            alert("login success")
+            navigate('/dashboard')
         }else 
         {
             alert("Login failed")

@@ -673,6 +673,12 @@ banner
   font-weight: 900;
 }
 
+.main-banner .caption h4 em {
+  font-style: normal;
+  color: #ed563b;
+  font-weight: 900;
+}
+
 
 /*
 ---------------------------------------------
