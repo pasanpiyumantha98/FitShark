@@ -46,12 +46,27 @@ function Login()
 
         <div class="video-overlay header-text">
             <div class="caption">
-                <form action="/login" method="POST">
-                <input type="email" name="email" placeholder="Email" required /><br></br>
-                <input type="password" name="password" placeholder="Password" required />
-     
-                <button type="submit">Login</button>
-                </form>
+               
+                <div class="jumbotron rounded">
+                
+                <h1>Login</h1>
+               <form action="/action_page.php">
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email"  class="form-control" placeholder="Enter email" id="email"/>
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control"   placeholder="Enter password" id="pwd"/>
+  </div>
+  <div class="form-group form-check">
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox"/> Remember me
+    </label>
+  </div>
+  <button type="submit" class="btn btn-danger">Submit</button>
+</form>
+                </div> 
             </div>
         </div>
     </div>
