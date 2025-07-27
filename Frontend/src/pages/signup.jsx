@@ -45,12 +45,28 @@ function Signup()
         </video>
 
         <div class="video-overlay header-text">
-            <div class="caption">
+            <div class="caption1">
                
                 <div class="jumbotron rounded">
                 
                 <h1>Login</h1>
                <form action="/action_page.php">
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email"  class="form-control" placeholder="Enter email" id="email"/>
+  </div>
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email"  class="form-control" placeholder="Enter email" id="email"/>
+  </div>
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email"  class="form-control" placeholder="Enter email" id="email"/>
+  </div>
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email"  class="form-control" placeholder="Enter email" id="email"/>
+  </div>
   <div class="form-group">
     <label for="email">Email address:</label>
     <input type="email"  class="form-control" placeholder="Enter email" id="email"/>
