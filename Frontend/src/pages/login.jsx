@@ -13,12 +13,24 @@ import "../assets/js/accordions.js"
 import "../assets/js/custom.js"
 import video from "../assets/images/gym-video.mp4"
 import Navbar1 from "../components/navbar1.jsx"
+import { useState } from "react"
 
 
 
 
 function Login()
 {
+
+    const [email,setEmail] = useState("")
+    const [pass,setPass] = useState("")
+
+    async function submitlogin()
+    {
+        alert(email)
+    }
+
+
+
     return (
         <>
 
@@ -54,18 +66,18 @@ function Login()
                <form action="/action_page.php">
   <div class="form-group">
     <label for="email">Email address:</label>
-    <input type="email"  class="form-control" placeholder="Enter email" id="email"/>
+    <input type="email"  class="form-control" placeholder="Enter email" id="email" value={email} onChange={e=>setEmail(e.target.value)}/>
   </div>
   <div class="form-group">
     <label for="pwd">Password:</label>
-    <input type="password" class="form-control"   placeholder="Enter password" id="pwd"/>
+    <input type="password" class="form-control"   placeholder="Enter password" id="pwd" value={pass} onChange={e =>setPass(e.target.value)}/>
   </div>
   <div class="form-group form-check">
     <label class="form-check-label">
       <input class="form-check-input" type="checkbox"/> Remember me
     </label>
   </div>
-  <button type="submit" class="btn btn-danger">Login</button>
+  <button type="submit" class="btn btn-danger" onClick={submitlogin}>Login</button>
 </form>
                 </div> 
             </div>
