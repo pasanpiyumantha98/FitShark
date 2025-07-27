@@ -27,8 +27,9 @@ function Login()
 
     async function submitlogin()
     {
-       const response= axios.post("http://localhost:8080/api/user/login", {email:email, password:pass})
-        if(response==="success")
+       const response= await axios.post("http://localhost:8080/api/user/login", {email:email, password:pass})
+       
+        if(response.data==="Success")
         {
             alert("login success")
         }else 
