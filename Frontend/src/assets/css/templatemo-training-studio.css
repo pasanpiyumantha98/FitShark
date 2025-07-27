@@ -633,6 +633,11 @@ banner
   transform: translate(-50%,-50%);
 }
 
+.jumbotron {
+  background-color: rgba(0, 0, 0, 0.3); /* black with 50% opacity */
+  color: white; /* optional: ensure text remains visible */
+}
+
 .main-banner .caption2 {
   text-align: center;
   position: absolute;
