@@ -53,7 +53,31 @@ function Home ()
                         <p>"Training Studio is free CSS template for gyms and fitness centers. You are allowed to use this layout for your business website."</p>
                     <div class="main-button scroll-to-section">
                          <br></br>
-                            <a href="#our-classes">Log Activity</a>
+                            <a data-bs-toggle="modal" data-bs-target="#myModal">Log Activity</a>
+
+                              <div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+     
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+     
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
                         </div>
                     
                     </div>
@@ -70,7 +94,7 @@ function Home ()
                             <div class="right-content">
                                 <h4>New Gym Training</h4>
                                 <p>If you wish to support TemplateMo website via PayPal, please feel free to contact us. We appreciate it a lot.</p>
-                                <a href="#" class="text-button">Discover More</a>
+                               
                             </div>
                         </li>
                         <li class="feature-item">
@@ -115,6 +139,8 @@ function Home ()
             </div>
         </div>
     </section>
+
+  
 
     <section class="section" id="call-to-action">
         <div class="container">
