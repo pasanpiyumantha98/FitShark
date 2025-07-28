@@ -24,7 +24,16 @@ public class ActivityService {
     // Register Acitvity
     public String regActivity(ActivityDto activityDto) {
 
-        int id = activityRepo.getMaxId() +1;
+        Integer maxid = activityRepo.getMaxId();
+        int id;
+        if (maxid == null) {
+            id=0;
+        } else{
+            id=maxid;
+        }
+
+
+        id = id +1;
         activityDto.setId(id);
         activityRepo.save(modelMapper.map(activityDto, Acitivity.class));
         return "success";

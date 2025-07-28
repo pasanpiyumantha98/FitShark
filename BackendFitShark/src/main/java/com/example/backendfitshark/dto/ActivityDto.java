@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class ActivityDto {
     int id;
     int user_id;
-    int activity_id;
+    String activity_id;
     int hours;
     int minutes;
 }

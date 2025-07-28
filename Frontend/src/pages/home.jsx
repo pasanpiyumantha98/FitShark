@@ -36,6 +36,7 @@ function Home ()
 
     setName("Pasan");
     setGender("male")
+    setUid("03")
 
     if(gender==="male")
     {
@@ -50,7 +51,15 @@ function Home ()
     async function submitAct()
     {
 
-        const response = axios.post('',{user_id:useId,})
+        const response =await axios.post('http://localhost:8080/api/act/add',{user_id:uid,activity_id:act,hours:hours,minutes:minutes})
+
+        if(response.data==="success")
+        {
+           handleClose()
+        } else
+        {
+            alert("NotOK")
+        }
 
 
     }
@@ -74,7 +83,7 @@ function Home ()
 
                             
           <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
+            <Modal.Header >
               <center><Modal.Title>Log Activity</Modal.Title></center>
             </Modal.Header>
             <Modal.Body>
@@ -85,13 +94,13 @@ function Home ()
                 <label htmlFor="gender">Acitivity Type</label>
                 <select className="form-control" id="gender" onChange={e=>setAct(e.target.value)} value={act} required>
                 <option value="select" >Select</option>
-                <option value="male" >Ran</option>
-                <option value="female" >Swimmed</option>
-                <option value="other" >Cricket</option>
-                <option value="other" >Gym</option>
-                <option value="other" >Football</option>
-                <option value="other" >Walking</option>
-                <option value="other" >Hiking</option>
+                <option value="Ran" >Ran</option>
+                <option value="Swimmed" >Swimmed</option>
+                <option value="Cricket" >Cricket</option>
+                <option value="Gym" >Gym</option>
+                <option value="Football" >Football</option>
+                <option value="Walking" >Walking</option>
+                <option value="Hiking" >Hiking</option>
                 <option value="other" >Other</option>
                 </select>
 
@@ -109,7 +118,7 @@ function Home ()
               <Button variant="secondary" onClick={handleClose}>
                 Cancel
               </Button>
-              <Button variant="primary" onClick={handleClose}>
+              <Button variant="primary" onClick={submitAct}>
                 Add
               </Button>
             </Modal.Footer>
