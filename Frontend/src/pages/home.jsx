@@ -14,6 +14,7 @@ import "../assets/js/custom.js"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import Navbar3 from "../components/navbar3.jsx"
+import { Modal, Button } from "react-bootstrap";
 
 function Home ()
 {
@@ -21,7 +22,15 @@ function Home ()
     const [name,setName] = useState("") 
     const [gender,setGender] = useState("")
     const [stat,setStat] = useState("")
+    const [show, setShow] = useState(false)
+    const [act,setAct] = useState("")
+    const[hours,setHours]=useState("0")
+    const[minutes,setMinutes]=useState("0")
+    const [uid,setUid] = useState("")
 
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     useEffect(()=>{
 
@@ -37,6 +46,14 @@ function Home ()
     }
 
     },[gender])
+
+    async function submitAct()
+    {
+
+        const response = axios.post('',{user_id:useId,})
+
+
+    }
    
    
 
@@ -53,31 +70,50 @@ function Home ()
                         <p>"Training Studio is free CSS template for gyms and fitness centers. You are allowed to use this layout for your business website."</p>
                     <div class="main-button scroll-to-section">
                          <br></br>
-                            <a data-bs-toggle="modal" data-bs-target="#myModal">Log Activity</a>
+                            <a onClick={handleShow}>Log Activity</a>
 
-                              <div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
+                            
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <center><Modal.Title>Log Activity</Modal.Title></center>
+            </Modal.Header>
+            <Modal.Body>
+              
+              <form>
 
-     
-      <div class="modal-header">
-        <h4 class="modal-title">Modal Heading</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
+              <div className="form-group">
+                <label htmlFor="gender">Acitivity Type</label>
+                <select className="form-control" id="gender" onChange={e=>setAct(e.target.value)} value={act} required>
+                <option value="select" >Select</option>
+                <option value="male" >Ran</option>
+                <option value="female" >Swimmed</option>
+                <option value="other" >Cricket</option>
+                <option value="other" >Gym</option>
+                <option value="other" >Football</option>
+                <option value="other" >Walking</option>
+                <option value="other" >Hiking</option>
+                <option value="other" >Other</option>
+                </select>
 
-     
-      <div class="modal-body">
-        Modal body..
-      </div>
-
-      
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-      </div>
-
-    </div>
-  </div>
-</div>
+                <br></br>
+                
+                <label htmlFor="gender">Duration</label>
+               <div className="d-flex gap-2">
+                <input type="number" className="form-control" placeholder="Hours" value={hours} onChange={e=>setHours(e.target.value)} />
+                 <input type="number" className="form-control" placeholder="Minutes" value={minutes} onChange={e=>setMinutes(e.target.value)}/>
+                </div>          </div>
+            
+            </form>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Cancel
+              </Button>
+              <Button variant="primary" onClick={handleClose}>
+                Add
+              </Button>
+            </Modal.Footer>
+          </Modal>
                         </div>
                     
                     </div>
