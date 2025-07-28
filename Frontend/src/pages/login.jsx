@@ -13,7 +13,7 @@ import "../assets/js/accordions.js"
 import "../assets/js/custom.js"
 import video from "../assets/images/gym-video.mp4"
 import Navbar1 from "../components/navbar1.jsx"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import axios from "axios"
 import { useNavigate, Link } from "react-router-dom"
 import { toast } from "react-toastify";
@@ -26,6 +26,7 @@ function Login()
 
     const [email,setEmail] = useState("")
     const [pass,setPass] = useState("")
+    const[uid,setUid] = useState("")
 
     const navigate = useNavigate();
 
@@ -33,9 +34,18 @@ function Login()
     {
       e.preventDefault();
        const response= await axios.post("http://localhost:8080/api/user/login", {email:email, password:pass})
+
+       setUid(response.data)
        
-        if(response.data==="Success")
+
+         localStorage.setItem("uid",response.data)
+          
+
+      
+
+        if(response.data>0)
         {
+          
             navigate('/dashboard')
         }else 
         {

@@ -21,7 +21,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String Login(@RequestBody UserDto userDto) {
+    public int Login(@RequestBody UserDto userDto) {
         return userService.logUser(userDto);
     }
 

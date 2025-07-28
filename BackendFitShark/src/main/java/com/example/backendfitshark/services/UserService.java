@@ -9,7 +9,9 @@ import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.ResourceTransactionManager;
 
+import java.util.Optional;
 
 
 @Service
@@ -21,6 +23,8 @@ public class UserService {
 
     @Autowired
     private ModelMapper modelMapper;
+    @Autowired
+    private ResourceTransactionManager resourceTransactionManager;
 
     //Register User
     public String regUser(UserDto userDto) {
@@ -48,16 +52,16 @@ public class UserService {
     }
 
     // Login User
-    public String logUser(UserDto userDto) {
+    public int logUser(UserDto userDto) {
         User user = userRepo.findUserByEmail(userDto.getEmail());
 
         if(user == null) {
-            return "NotFound";
+            return -2;
         } else if (user.getPassword().equals(userDto.getPassword()))
         {
-            return "Success";
+            return user.getId();
         } else {
-            return "Error";
+            return -1;
         }
 
     }
@@ -69,6 +73,12 @@ public class UserService {
             int  id = userDto.getId();
             userRepo.updatePass(pass, id);
             return "Done";
+    }
+
+    public User userDetails(int userid) {
+
+        User user = userRepo.findById(userid);
+        return user
     }
 
 
