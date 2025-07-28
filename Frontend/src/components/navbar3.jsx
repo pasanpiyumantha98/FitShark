@@ -30,7 +30,7 @@ return (
                         
                        
                         <ul class="nav">
-                           <li class="scroll-to-section"> <Link to="/signup">Home </Link></li>
+                           <li class="scroll-to-section"> <Link to="/signup">My Profile </Link></li>
                             
                            <li class="scroll-to-section"> <Link to="/signup">Support </Link></li>
                            <li class="main-button"> <Link to="/login">Logout</Link> </li>

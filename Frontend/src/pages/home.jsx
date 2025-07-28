@@ -17,7 +17,23 @@ import Navbar3 from "../components/navbar3.jsx"
 
 function Home ()
 {
- 
+
+    const [name,setName] = useState("") 
+    const [gender,setGender] = useState("")
+    const [stat,setStat] = useState("")
+
+    setName("Pasan");
+    setGender("male")
+
+    if(gender=="male")
+    {
+        setStat("Mr.")
+    } else
+    {
+        setStat("Ms.")
+    }
+   
+
     return(
 <>
 <Navbar3/>
@@ -26,7 +42,7 @@ function Home ()
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
-                        <h2>Welcome, <em>Mr. Pasan !</em></h2>
+                        <h2>Welcome, <em>{stat}. {name} !</em></h2>
                        <br></br>
                         <p>"Training Studio is free CSS template for gyms and fitness centers. You are allowed to use this layout for your business website."</p>
                     <div class="main-button scroll-to-section">
