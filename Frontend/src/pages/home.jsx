@@ -11,7 +11,7 @@ import "../assets/js/imgfix.min.js"
 import "../assets/js/mixitup.js"
 import "../assets/js/accordions.js"
 import "../assets/js/custom.js"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import axios from "axios"
 import Navbar3 from "../components/navbar3.jsx"
 
@@ -22,16 +22,22 @@ function Home ()
     const [gender,setGender] = useState("")
     const [stat,setStat] = useState("")
 
+
+    useEffect(()=>{
+
     setName("Pasan");
     setGender("male")
 
-    if(gender=="male")
+    if(gender==="male")
     {
         setStat("Mr.")
     } else
     {
         setStat("Ms.")
     }
+
+    },[gender])
+   
    
 
     return(
@@ -42,7 +48,7 @@ function Home ()
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
-                        <h2>Welcome, <em>{stat}. {name} !</em></h2>
+                        <h2>Welcome, <em>{stat} {name} !</em></h2>
                        <br></br>
                         <p>"Training Studio is free CSS template for gyms and fitness centers. You are allowed to use this layout for your business website."</p>
                     <div class="main-button scroll-to-section">
