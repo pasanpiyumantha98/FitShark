@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.ResourceTransactionManager;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -75,10 +76,10 @@ public class UserService {
             return "Done";
     }
 
-    public User userDetails(int userid) {
+    public List<UserDto> userDetails(int userid) {
 
-        User user = userRepo.findById(userid);
-        return user
+        List<User> user = userRepo.findUserById(userid);
+        return modelMapper.map(user, new TypeToken<List<UserDto>>(){}.getType());
     }
 
 

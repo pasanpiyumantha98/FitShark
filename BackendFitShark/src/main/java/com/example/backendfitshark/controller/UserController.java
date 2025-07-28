@@ -2,10 +2,13 @@ package com.example.backendfitshark.controller;
 
 
 import com.example.backendfitshark.dto.UserDto;
+import com.example.backendfitshark.model.User;
 import com.example.backendfitshark.repo.UserRepo;
 import com.example.backendfitshark.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -28,6 +31,12 @@ public class UserController {
     @PostMapping("/update/pass")
     public String updatePass(@RequestBody UserDto userDto) {
        return userService.updatePass(userDto);
+    }
+
+    @GetMapping("/get/{id}")
+    public List<UserDto> getUserById(@PathVariable int id) {
+
+        return userService.userDetails(id);
     }
 
 
